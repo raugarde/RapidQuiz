@@ -69,13 +69,13 @@ public class QuestionBean extends BaseBean {
 			this.correctAns = correctAns;
 		}
 
-	@Override
+
 	public String getKey() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+
 	public String getValue() {
 		// TODO Auto-generated method stub
 		return null;

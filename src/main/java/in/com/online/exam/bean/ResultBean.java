@@ -44,12 +44,12 @@ public class ResultBean  extends BaseBean{
 	public void setUser_id(long user_id) {
 		this.user_id = user_id;
 	}
-	@Override
+
 	public String getKey() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
+
 	public String getValue() {
 		// TODO Auto-generated method stub
 		return null;

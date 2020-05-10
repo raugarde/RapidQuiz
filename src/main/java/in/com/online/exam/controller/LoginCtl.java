@@ -41,8 +41,8 @@ public class LoginCtl extends BaseCtl {
 	private static final long serialVersionUID = 1L;
 	
 	public static final String OP_REGISTER = "Register";
-	public static final String OP_SIGN_IN = "SignIn";
-	public static final String OP_SIGN_UP = "SignUp";
+	public static final String OP_SIGN_IN = "Sign In";
+	public static final String OP_SIGN_UP = "Sign Up";
 	public static final String OP_LOG_OUT = "logout";
 	public static String HIT_URI = null;
 	

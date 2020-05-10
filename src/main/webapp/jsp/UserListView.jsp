@@ -30,9 +30,11 @@
 								
 							</div>
 							<div class="col-sm-6 form-group">
-								
-								<input type="submit"
-                        name="operation" class="btn btn-md btn-info" value="<%=UserListCtl.OP_SEARCH%>" >
+								<% 
+								UserModel nwusr = new UserModel();
+								%>
+								<input type="submit" name="operation" class="btn btn-md btn-info" value="<%=UserListCtl.OP_SEARCH%>" >
+								<a href="UserCtl?id=<%=nwusr.nextPK()%>"  style="margin-left: 220px;" class="btn btn-success" >NEW</a>
 							</div>
 						</div>					
 			</div>		
@@ -55,8 +57,8 @@
 			 <%
 				int pageNo = ServletUtility.getPageNo(request);
 				int pageSize = ServletUtility.getPageSize(request);
-				int index = ((pageNo - 1) * pageSize) + 1;
 				UserBean bean = null;
+				int index = ((pageNo - 1) * pageSize) + 1;
 				List list = ServletUtility.getList(request);
 				Iterator<UserBean> i = list.iterator();
 				while (i.hasNext()) {
