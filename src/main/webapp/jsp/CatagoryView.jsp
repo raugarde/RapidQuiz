@@ -46,7 +46,9 @@
 				<tr>
 					<th scope="col">S.No.</th>
 					<th scope="col">Category</th>
+					<th scope="col">Subject</th>
 					<th scope="col">Click To Start</th>
+					
 				</tr>
 			</thead>
 			 <%
@@ -63,6 +65,7 @@
 				<tr>
 					<th scope="row"><%=index++%></th>
 					<td><%=bean.getExamCategory()%></td>
+					<td><%=bean.getSubject_description()%></td>
 					<td><a href="StartExamCtl?ct=<%=bean.getExamCategory()%>"  class="btn btn-success" >StartExam</a>
 				</tr>
 <%

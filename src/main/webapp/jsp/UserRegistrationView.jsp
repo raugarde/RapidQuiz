@@ -66,7 +66,7 @@
 						</div>					
 							
 					<div class="form-group">
-						<label>Student Email</label>
+						<label>Student Id(Email)</label>
 						<input type="text" name="login" placeholder="Enter Email Address Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getLogin())%>">
 						<b><font color="red"><%=ServletUtility.getErrorMessage("login", request)%></font></b>
 					</div>

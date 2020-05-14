@@ -42,8 +42,8 @@
 
 					<%UserBean ubean=(UserBean) session.getAttribute("user");
 							ResultBean rBean=(ResultBean)request.getAttribute("rBean");
-							int count = Integer.getInteger(request.getAttribute("count").toString());
-							int size = Integer.getInteger(request.getAttribute("size").toString());
+							int count =(int)request.getAttribute("count");
+							int size=(int)request.getAttribute("size");
 						
 					%>
               

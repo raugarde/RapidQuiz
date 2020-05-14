@@ -25,16 +25,13 @@
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6 form-group">
-								
+
 								<input type="text" placeholder="Enter Name Here.." name="name" class="form-control"  >
-								
+
 							</div>
 							<div class="col-sm-6 form-group">
-								<% 
-								UserModel nwusr = new UserModel();
-								%>
+
 								<input type="submit" name="operation" class="btn btn-md btn-info" value="<%=UserListCtl.OP_SEARCH%>" >
-								<a href="UserCtl?id=<%=nwusr.nextPK()%>"  style="margin-left: 220px;" class="btn btn-success" >NEW</a>
 							</div>
 						</div>					
 			</div>		
@@ -57,8 +54,8 @@
 			 <%
 				int pageNo = ServletUtility.getPageNo(request);
 				int pageSize = ServletUtility.getPageSize(request);
-				UserBean bean = null;
 				int index = ((pageNo - 1) * pageSize) + 1;
+				UserBean bean = null;
 				List list = ServletUtility.getList(request);
 				Iterator<UserBean> i = list.iterator();
 				while (i.hasNext()) {
@@ -85,14 +82,14 @@
 				%>
 			</tbody>
 		</table>
-		
+
 		<table width="99%">
 				<tr>
 					<td><input type="submit" name="operation" class="btn btn-success"
 						value="<%=UserListCtl.OP_PREVIOUS%>"
 						<%=(pageNo == 1) ? "disabled" : ""%>></td>
 
-				
+
 					<%
 						UserModel model = new UserModel();
 					%>
@@ -102,11 +99,11 @@
 
 				</tr>
 			</table>
-		
+
 		<input type="hidden" name="pageNo" value="<%=pageNo%>"> <input
 				type="hidden" name="pageSize" value="<%=pageSize%>">
 	</form>
 <br><br><br>
 	<%@ include file="Footer.jsp"%>
 </body>
-</html>
+</html> 

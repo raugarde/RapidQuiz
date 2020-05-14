@@ -7,7 +7,8 @@ public class ExamBean extends BaseBean{
 	private String examName;
 	private Date examDate;
 	private String examCategory;
-	
+	private Integer subject_id;
+	private String subject_description;
 	
 	
 	
@@ -37,15 +38,32 @@ public class ExamBean extends BaseBean{
 		this.examDate = examDate;
 	}
 
-
+	@Override
 	public String getKey() {
 		// TODO Auto-generated method stub
 		return id+"";
 	}
 
+	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
 		return examName;
+	}
+
+	public Integer getSubject_id() {
+		return subject_id;
+	}
+
+	public void setSubject_id(Integer subject_id) {
+		this.subject_id = subject_id;
+	}
+
+	public String getSubject_description() {
+		return subject_description;
+	}
+
+	public void setSubject_description(String subject_description) {
+		this.subject_description = subject_description;
 	}
 
 }

@@ -1,6 +1,8 @@
 package in.com.online.exam.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-
-
 import in.com.online.exam.bean.BaseBean;
 import in.com.online.exam.bean.ExamBean;
+import in.com.online.exam.bean.UserBean;
 import in.com.online.exam.exeption.ApplicationException;
 import in.com.online.exam.exeption.DuplicateRecordException;
 import in.com.online.exam.model.ExamModel;
+import in.com.online.exam.model.SubjectModel;
 import in.com.online.exam.util.DataUtility;
 import in.com.online.exam.util.DataValidator;
 import in.com.online.exam.util.PropertyReader;
@@ -68,7 +70,7 @@ public class ExamCtl extends BaseCtl {
 		bean.setExamName(DataUtility.getString(request.getParameter("examName")));
 		bean.setExamDate(DataUtility.getDate(request.getParameter("examDate")));
 		bean.setExamCategory(DataUtility.getString(request.getParameter("category")));
-		
+		bean.setSubject_id(DataUtility.getInt(request.getParameter("subject_id")));
 		populateDTO(bean, request);
 		// TODO Auto-generated method stub
 		log.debug("SubjectCtl populateBean method end");
@@ -83,6 +85,7 @@ public class ExamCtl extends BaseCtl {
 		String op = DataUtility.getString(request.getParameter("operation"));
 	        
 	       ExamModel model = new ExamModel();
+	       SubjectModel subjectModel = new SubjectModel();
 	        long id = DataUtility.getLong(request.getParameter("id"));
 	        ServletUtility.setOpration("Add", request);
 	        if (id > 0 || op != null) {
@@ -90,14 +93,30 @@ public class ExamCtl extends BaseCtl {
 	            ExamBean bean;
 	            try {
 	                bean = model.findByPK(id);
+	               
 	                ServletUtility.setOpration("Edit", request);
 	                ServletUtility.setBean(bean, request);
+	               
 	            } catch (ApplicationException e) {
 	                ServletUtility.handleException(e, request, response);
 	                return;
 	            }
+	            
 	        }
-
+	        UserBean userbean = (UserBean) request.getSession().getAttribute("user");
+            List subjectBean;
+			try {
+				if(userbean.getRole_Id() == 1) {
+					subjectBean = subjectModel.list();
+				} else {
+					subjectBean = subjectModel.searchByTeacher((int)userbean.getId());
+				}
+			}catch (ApplicationException e) {
+	                ServletUtility.handleException(e, request, response);
+	                return;
+	            }
+            request.setAttribute("subjectList", subjectBean);
+            
 	        ServletUtility.forward(getView(), request, response);
 	        log.debug("SubjectCtl doGet method end");
 	}
@@ -111,8 +130,17 @@ public class ExamCtl extends BaseCtl {
 		ExamBean bean=(ExamBean)populateBean(request);
 		ExamModel model=new ExamModel();
 		long id=DataUtility.getLong(request.getParameter("id"));
+	    SubjectModel subjectModel = new SubjectModel();
 		if(OP_SAVE.equalsIgnoreCase(op)){
 			try {
+				UserBean userbean = (UserBean) request.getSession().getAttribute("user");
+	            List subjectBean;
+	            if(userbean.getRole_Id() == 1) {
+					subjectBean = subjectModel.list();
+				} else {
+					subjectBean = subjectModel.searchByTeacher((int)userbean.getId());
+				}
+	            request.setAttribute("subjectList", subjectBean);
 				if(id>0){
 					/*model.update(bean);*/
 					ServletUtility.setOpration("Edit", request);
@@ -121,7 +149,7 @@ public class ExamCtl extends BaseCtl {
 				}else {
 				long pk=model.add(bean);
 				ServletUtility.setSuccessMessage("Data is Successfully Saved", request);
-				ServletUtility.forward(getView(), request, response);
+				ServletUtility.forward(getViewHome(), request, response);
 				}
 				  ServletUtility.setBean(bean, request);
 			} catch (ApplicationException e) {
@@ -142,6 +170,12 @@ public class ExamCtl extends BaseCtl {
 	protected String getView() {
 		// TODO Auto-generated method stub
 		return ORSView.EXAM_VIEW;
+	}
+	
+
+	protected String getViewHome() {
+		// TODO Auto-generated method stub
+		return ORSView.WELCOME_VIEW;
 	}
 
 }

@@ -218,8 +218,6 @@ public long add(UserBean bean) throws ApplicationException, DuplicateRecordExcep
 			}
 		} catch (Exception e) {
 			log.error("Database Exception..", e);
-			System.out.println(e.getMessage());
-			e.printStackTrace();
 			throw new ApplicationException("Exception : Exception in get roles");
 
 		} finally {

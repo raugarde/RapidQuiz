@@ -178,10 +178,11 @@ public class QuestionListCtl extends BaseCtl {
 			ServletUtility.forward(getView(), request, response);
 		
 
-		} catch (Exception e) {
+		} catch (ApplicationException | DuplicateRecordException e) {
 			ServletUtility.handleException(e, request, response);
 			return;
 		}
+		log.debug("CollegeListCtl  doPost method end");
 	}
 
 	@Override

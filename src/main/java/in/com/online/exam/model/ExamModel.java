@@ -61,7 +61,7 @@ public class ExamModel {
 			// Get auto-generated next primary key
 			System.out.println(pk + " in ModelJDBC");
 			conn.setAutoCommit(false); // Begin transaction
-			PreparedStatement pstmt = conn.prepareStatement("INSERT INTO EX_EXAM VALUES(?,?,?,?,?,?,?,?)");
+			PreparedStatement pstmt = conn.prepareStatement("INSERT INTO EX_EXAM VALUES(?,?,?,?,?,?,?,?,?)");
 			pstmt.setInt(1, pk);
 			pstmt.setString(2, bean.getExamName());
 			pstmt.setDate(3, new java.sql.Date(bean.getExamDate().getTime()));
@@ -70,6 +70,7 @@ public class ExamModel {
 			pstmt.setTimestamp(6, bean.getCreatedDatetime());
 			pstmt.setTimestamp(7, bean.getModifiedDatetime());
 			pstmt.setString(8, bean.getExamCategory());
+			pstmt.setInt(9, bean.getSubject_id());
 			pstmt.executeUpdate();
 			conn.commit(); // End transaction
 			pstmt.close();
@@ -111,6 +112,7 @@ public class ExamModel {
 				bean.setCreatedDatetime(rs.getTimestamp(6));
 				bean.setModifiedDatetime(rs.getTimestamp(7));
 				bean.setExamCategory(rs.getString(8));
+				bean.setSubject_id(rs.getInt(9));
 			}
 			rs.close();
 		} catch (Exception e) {
@@ -146,6 +148,7 @@ public class ExamModel {
 				bean.setCreatedDatetime(rs.getTimestamp(6));
 				bean.setModifiedDatetime(rs.getTimestamp(7));
 				bean.setExamCategory(rs.getString(8));
+				bean.setSubject_id(rs.getInt(9));
 
 			}
 			rs.close();
@@ -204,6 +207,7 @@ public class ExamModel {
 				bean.setCreatedDatetime(rs.getTimestamp(6));
 				bean.setModifiedDatetime(rs.getTimestamp(7));
 				bean.setExamCategory(rs.getString(8));
+				bean.setSubject_id(rs.getInt(9));
 
 				list.add(bean);
 			}
@@ -258,7 +262,7 @@ public class ExamModel {
 			conn = JDBCDataSource.getConnection();
 			conn.setAutoCommit(false); // Begin transaction
 			PreparedStatement pstmt = conn.prepareStatement(
-					"UPDATE EX_EXAM SET EXAMNAME=?,ExamDate=?,CREATEDBY=?,MODIFIEDBY=?,CREATEDDATETIME=?,MODIFIEDDATETIME=?,examCategory=? WHERE ID=?");
+					"UPDATE EX_EXAM SET EXAMNAME=?,ExamDate=?,CREATEDBY=?,MODIFIEDBY=?,CREATEDDATETIME=?,MODIFIEDDATETIME=?,examCategory=?,SUBJECT_FK = ? WHERE ID=?");
 			pstmt.setString(1, bean.getExamName());
 			pstmt.setDate(2,  new java.sql.Date(bean.getExamDate().getTime()));
 			pstmt.setString(3, bean.getCreatedBy());
@@ -266,7 +270,8 @@ public class ExamModel {
 			pstmt.setTimestamp(5, bean.getCreatedDatetime());
 			pstmt.setTimestamp(6, bean.getModifiedDatetime());
 			pstmt.setString(7,bean.getExamCategory());
-			pstmt.setLong(8, bean.getId());
+			pstmt.setInt(8, bean.getSubject_id());
+			pstmt.setLong(9, bean.getId());
 			pstmt.executeUpdate();
 			conn.commit(); // End transaction
 			pstmt.close();
@@ -306,7 +311,7 @@ public class ExamModel {
 	    public List search(ExamBean bean, int pageNo, int pageSize)
 	            throws ApplicationException {
 	        log.debug("Model search Started");
-	        StringBuffer sql = new StringBuffer("SELECT * FROM Ex_Exam WHERE 1=1");
+	        StringBuffer sql = new StringBuffer("SELECT * FROM onlineexamsystem.Ex_Exam exam join userids.subject_typology sub on sub.id = exam.subject_fk WHERE 1=1");
 	        if (bean != null) {
 	            if (bean.getId() > 0) {
 	                sql.append(" AND id = " + bean.getId());
@@ -345,6 +350,11 @@ public class ExamModel {
 					bean.setCreatedDatetime(rs.getTimestamp(6));
 					bean.setModifiedDatetime(rs.getTimestamp(7));
 					bean.setExamCategory(rs.getString(8));
+					bean.setSubject_id(rs.getInt(9));
+					bean.setSubject_description(rs.getString(11));
+					if(bean.getSubject_description() == null) {
+						bean.setSubject_description("No subject defined");
+					}
 	                list.add(bean);
 	            }
 	            rs.close();
