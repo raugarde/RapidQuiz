@@ -57,31 +57,41 @@ public class QuestionCtl extends BaseCtl {
 					PropertyReader.getValue("error.require", "Exam Name"));
 			pass = false;
 		}
-
+        
+        if (DataValidator.isNull(request.getParameter("questionType"))) {
+            request.setAttribute("questionType", PropertyReader.getValue("error.require", "Question Type"));
+            pass = false;
+        }
         if (DataValidator.isNull(request.getParameter("questionName"))) {
             request.setAttribute("questionName", PropertyReader.getValue("error.require", "Question Name"));
             pass = false;
         }
-        
-        if (DataValidator.isNull(request.getParameter("option1"))) {
-            request.setAttribute("option1", PropertyReader.getValue("error.require", "Option First"));
-            pass = false;
+        //Condition to check the question type
+        if(DataUtility.getInt(request.getParameter("questionType"))==1) {
+            
+            if (DataValidator.isNull(request.getParameter("option1"))) {
+                request.setAttribute("option1", PropertyReader.getValue("error.require", "Option First"));
+                pass = false;
+            }
+            
+            if (DataValidator.isNull(request.getParameter("option2"))) {
+                request.setAttribute("option2", PropertyReader.getValue("error.require", "Option Secound"));
+                pass = false;
+            }
+            
+            if (DataValidator.isNull(request.getParameter("option3"))) {
+                request.setAttribute("option3", PropertyReader.getValue("error.require", "Option Third"));
+                pass = false;
+            }
+            
+            if (DataValidator.isNull(request.getParameter("option4"))) {
+                request.setAttribute("option4", PropertyReader.getValue("error.require", "Option Forth"));
+                pass = false;
+            }
+        	
         }
+
         
-        if (DataValidator.isNull(request.getParameter("option2"))) {
-            request.setAttribute("option2", PropertyReader.getValue("error.require", "Option Secound"));
-            pass = false;
-        }
-        
-        if (DataValidator.isNull(request.getParameter("option3"))) {
-            request.setAttribute("option3", PropertyReader.getValue("error.require", "Option Third"));
-            pass = false;
-        }
-        
-        if (DataValidator.isNull(request.getParameter("option4"))) {
-            request.setAttribute("option4", PropertyReader.getValue("error.require", "Option Forth"));
-            pass = false;
-        }
         
         if (DataValidator.isNull(request.getParameter("correct"))) {
             request.setAttribute("correct", PropertyReader.getValue("error.require", "Correct Ans"));
@@ -99,11 +109,23 @@ public class QuestionCtl extends BaseCtl {
 		QuestionBean bean=new QuestionBean();
 		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		bean.setExamName(DataUtility.getString(request.getParameter("examName")));
+		bean.setQuestionType(DataUtility.getInt(request.getParameter("questionType")));
 		bean.setQuestionName(DataUtility.getString(request.getParameter("questionName")));
-		bean.setOption1(DataUtility.getString(request.getParameter("option1")));
-		bean.setOption2(DataUtility.getString(request.getParameter("option2")));
-		bean.setOption3(DataUtility.getString(request.getParameter("option3")));
-		bean.setOption4(DataUtility.getString(request.getParameter("option4")));
+		bean.setOption1(DataUtility.getString(request.getParameter("correct")));
+		if(bean.getQuestionType()==2) {
+			
+			bean.setOption2("Not Applicable");
+			bean.setOption3("Not Applicable");
+			bean.setOption4("Not Applicable");
+		}
+		else
+		{
+			
+			bean.setOption2(DataUtility.getString(request.getParameter("option2")));
+			bean.setOption3(DataUtility.getString(request.getParameter("option3")));
+			bean.setOption4(DataUtility.getString(request.getParameter("option4")));
+		}
+		
 		bean.setCorrectAns(DataUtility.getString(request.getParameter("correct")));
 		
 		populateDTO(bean, request);

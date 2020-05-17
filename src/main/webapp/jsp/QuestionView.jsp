@@ -47,29 +47,38 @@
 						<b><font color="red"><%=ServletUtility.getErrorMessage("examName", request)%></font></b>
 					</div>
 					<div class="form-group">
+						<label>Question Type</label>
+						<select name="questionType" class="form-control" id="qtype_select">
+						  	<option value="1">MCQ</option>
+  							<option value="2">Subjective</option>
+						</select>
+						<b><font color="red"><%=ServletUtility.getErrorMessage("q_type", request)%></font></b>
+					</div>
+					<div class="form-group subjective">
 						<label>Question Name</label>
 						<input type="text" name="questionName" placeholder="Enter Question Name Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getQuestionName())%>">
 						<b><font color="red"><%=ServletUtility.getErrorMessage("questionName", request)%></font></b>
 					</div>
 						<div class="row">
-							<div class="col-sm-6 form-group">
+							<div class="col-sm-6 form-group optional">
 								<label>Option 1</label>
-								<input type="text" name="option1" placeholder="Enter Option1 Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getOption1())%>" >
+								
+								<input type="text" name="option1" placeholder="Enter Option1 Here.." class="form-control subjective" value="<%=DataUtility.getStringData(bean.getOption1())%>" >
 								<b><font color="red"> <%=ServletUtility.getErrorMessage("option1", request)%></font></b>
 							</div>
-							<div class="col-sm-6 form-group">
+							<div class="col-sm-6 form-group optional">
 								<label>Option 2</label>
 								<input type="text" name="option2" placeholder="Enter Option 2 Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getOption2())%>">
 								<b><font color="red"> <%=ServletUtility.getErrorMessage("option2", request)%></font></b>
 							</div>
 						</div>						
 						<div class="row">
-							<div class="col-sm-6 form-group">
+							<div class="col-sm-6 form-group optional">
 								<label>Option 3</label>
 								<input type="text" name="option3" placeholder="Enter Option 3 Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getOption3())%>">
 								<b><font color="red"><%=ServletUtility.getErrorMessage("option3", request)%></font></b>
 							</div>
-							<div class="col-sm-6 form-group">
+							<div class="col-sm-6 form-group optional">
 								<label>Option 4</label>
 								<input type="text" name="option4" placeholder="Enter Option 4 Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getOption4())%>">
 								<b><font color="red"> <%=ServletUtility.getErrorMessage("option4", request)%></font></b>
@@ -77,7 +86,8 @@
 						</div>	
 						
 					<div class="form-group">
-						<label>Correct Ans</label>
+						<label  class="optional">Correct Answer</label>
+						<label id="ans">Answer</label>
 						<input type="text" name="correct" placeholder="Enter Correct Ans Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getCorrectAns())%>" >
 						<b><font color="red"> <%=ServletUtility.getErrorMessage("correct", request)%></font></b>
 					</div>
@@ -92,6 +102,23 @@
 	<br><br>
 	<hr>
 	<br><br>
-<%@include file="Footer.jsp"%>
+	<!-- Script -->
+<script type="text/javascript">
+$('#qtype_select').on('change', function() {
+	$('.optional').css('display','none');
+    if ( this.value == '2')
+    {
+        $('.subjective').css('display','block');
+        $('.subjective').css('width','650px');
+        $('#ans').css('display','block');
+    }
+    else
+    {
+    	$('.optional').css('display','block');
+        $('.subjective').css('width','100%');
+        $('#ans').css('display','none');
+    }
+  });
+</script>
 </body>
 </html>

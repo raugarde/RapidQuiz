@@ -55,8 +55,57 @@
 						<input type="text" name="login" placeholder="Enter Email Address Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getLogin())%>">
 						<b><font color="red"><%=ServletUtility.getErrorMessage("login", request)%></font></b>
 					</div>
+					
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" name="password" class="form-control" value="<%=DataUtility.getStringData(bean.getPassword())%>">
+						<b><font color="red"><%=ServletUtility.getErrorMessage("password", request)%></font></b>
+					</div>
 						
-						
+					<div class="form-group">
+						<label>User Type</label>
+						<select name="role_Id" class="form-control">
+						  	<%
+						  		int role_value = (int) bean.getRole_Id();
+						  		if(role_value < 0){
+						  			role_value = 1;
+						  		}
+						  		int role_opt1 = 2;
+						  		int role_opt2 = 3;
+						  		String role_main_str = "Admin";
+						  		String role_opt1_str = "Student";
+						  		String role_opt2_str = "Teacher";
+						  		if(role_value==2){
+						  			role_opt1 = 1;
+						  			role_opt2 = 3;
+							  		role_main_str = "Student";
+						  			role_opt1_str = "Admin";
+						  			role_opt2_str = "Teacher";
+						  		}
+						  		else if(role_value==3){
+						  			role_opt1 = 1;
+						  			role_opt2 = 2;
+						  			role_main_str = "Teacher";
+						  			role_opt1_str = "Admin";
+						  			role_opt2_str = "Student";
+						  		}
+						  		else {
+						  			role_opt1 = 3;
+						  			role_opt2 = 2;
+						  			role_main_str = "Admin";
+						  			role_opt1_str = "Teacher";
+						  			role_opt2_str = "Student";
+						  		}
+						  	
+						  		
+						  	
+						  	%>
+							<option value="<%=role_value%>"><%=role_main_str%></option>
+  							<option value="<%=role_opt1%>"><%=role_opt1_str%></option>
+  							<option value="<%=role_opt2%>"><%=role_opt2_str%></option>
+						</select>
+						<b><font color="red"><%=ServletUtility.getErrorMessage("role_Id", request)%></font></b>
+					</div>
 						
 					<div class="form-group">
 						<label>Date Of Birth</label>

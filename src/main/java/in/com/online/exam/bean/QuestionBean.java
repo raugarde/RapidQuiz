@@ -4,6 +4,7 @@ public class QuestionBean extends BaseBean {
 
 		private String examName;
 		private String questionName;
+		private int questionType;
 		private String option1;
 		private String option2;
 		private String option3;
@@ -16,9 +17,18 @@ public class QuestionBean extends BaseBean {
 	public String getExamName() {
 			return examName;
 		}
+	
 
 		public void setExamName(String examName) {
 			this.examName = examName;
+		}
+		
+		public int getQuestionType() {
+			return questionType;
+		}
+		
+		public void setQuestionType(int questionType) {
+			this.questionType = questionType;
 		}
 
 		public String getQuestionName() {

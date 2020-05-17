@@ -77,7 +77,7 @@ public long add(ResultBean bean) throws ApplicationException, DuplicateRecordExc
 				ex.printStackTrace();
 				throw new ApplicationException("Exception : add rollback exception " + ex.getMessage());
 			}
-			throw new ApplicationException("Exception : Exception in add User");
+			throw new ApplicationException("Exception : Exception in add User" + e.getMessage());
 		} finally {
 			JDBCDataSource.closeConnection(conn);
 		}

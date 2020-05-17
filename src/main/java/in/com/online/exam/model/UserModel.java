@@ -271,10 +271,9 @@ public long add(UserBean bean) throws ApplicationException, DuplicateRecordExcep
 
 	try {
 		conn = JDBCDataSource.getConnection2();
+		System.out.println("Role Id is " + bean.getPassword());
 		conn.setAutoCommit(false); // Begin transaction
-		PreparedStatement pstmt = conn.prepareStatement(
-				"UPDATE EX_USER SET FNAME=?,LNAME=?,LOGIN=?,PASSWORD=?,MOBILENO=?,DOB=?,address=?,GENDER=?,"
-				+ "CREATEDBY=?,MODIFIEDBY=?,CREATEDDATETIME=?,MODIFIEDDATETIME=?,ROLE_NAME=?,ROLE_ID=? WHERE ID=?");
+		PreparedStatement pstmt = conn.prepareStatement("UPDATE EX_USER SET FNAME=?,LNAME=?,LOGIN=?,PASSWORD=?,MOBILENO=?,DOB=?,address=?,GENDER=?,CREATEDBY=?,MODIFIEDBY=?,CREATEDDATETIME=?,MODIFIEDDATETIME=?,ROLE_NAME=?,ROLE_ID=? WHERE ID=?");
 		pstmt.setString(1, bean.getFName());
 		pstmt.setString(2, bean.getLName());
 		pstmt.setString(3, bean.getLogin());

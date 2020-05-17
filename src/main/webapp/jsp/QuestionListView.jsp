@@ -26,8 +26,8 @@
 			<thead class="thead-dark">
 			<%
 							
-							int count = Integer.getInteger(request.getAttribute("count").toString());
-							int size = Integer.getInteger(request.getAttribute("size").toString());
+							int count = (int)request.getAttribute("count");
+							int size = (int) request.getAttribute("size");
 							int pageNo=ServletUtility.getPageNo(request);
 							int pageSize=ServletUtility.getPageSize(request);
 							int index=((pageNo-1)*pageSize)+1;

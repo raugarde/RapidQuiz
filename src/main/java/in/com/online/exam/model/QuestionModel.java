@@ -71,7 +71,7 @@ public long add(QuestionBean bean) throws ApplicationException, DuplicateRecordE
 			// Get auto-generated next primary key
 			System.out.println(pk + " in ModelJDBC");
 			conn.setAutoCommit(false); // Begin transaction
-			PreparedStatement pstmt = conn.prepareStatement("INSERT INTO EX_QUESTION VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement pstmt = conn.prepareStatement("INSERT INTO EX_QUESTION VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			pstmt.setInt(1, pk);
 			pstmt.setString(2, bean.getExamName());
 			pstmt.setString(3, bean.getQuestionName());
@@ -84,6 +84,7 @@ public long add(QuestionBean bean) throws ApplicationException, DuplicateRecordE
 			pstmt.setString(10, bean.getModifiedBy());
 			pstmt.setTimestamp(11, bean.getCreatedDatetime());
 			pstmt.setTimestamp(12, bean.getModifiedDatetime());
+			pstmt.setInt(13, bean.getQuestionType());
 			pstmt.executeUpdate();
 			conn.commit(); // End transaction
 			pstmt.close();
@@ -129,6 +130,7 @@ public QuestionBean findByQuestionName(String name) throws ApplicationException 
 			bean.setModifiedBy(rs.getString(10));
 			bean.setCreatedDatetime(rs.getTimestamp(11));
 			bean.setModifiedDatetime(rs.getTimestamp(12));
+			bean.setQuestionType(rs.getInt(13));
 		
 		}
 		rs.close();
@@ -169,6 +171,7 @@ public QuestionBean findByPK(long id) throws ApplicationException {
 			bean.setModifiedBy(rs.getString(10));
 			bean.setCreatedDatetime(rs.getTimestamp(11));
 			bean.setModifiedDatetime(rs.getTimestamp(12));
+			bean.setQuestionType(rs.getInt(13));
 		
 		}
 		rs.close();
@@ -231,7 +234,7 @@ public List list(int pageNo, int pageSize) throws ApplicationException {
 			bean.setModifiedBy(rs.getString(10));
 			bean.setCreatedDatetime(rs.getTimestamp(11));
 			bean.setModifiedDatetime(rs.getTimestamp(12));
-
+			bean.setQuestionType(rs.getInt(13));
 			list.add(bean);
 		}
 		rs.close();
@@ -312,7 +315,7 @@ public List search(QuestionBean bean, int pageNo, int pageSize) throws Applicati
 			bean.setModifiedBy(rs.getString(10));
 			bean.setCreatedDatetime(rs.getTimestamp(11));
 			bean.setModifiedDatetime(rs.getTimestamp(12));
-
+			bean.setQuestionType(rs.getInt(13));
 			list.add(bean);
 		}
 		rs.close();

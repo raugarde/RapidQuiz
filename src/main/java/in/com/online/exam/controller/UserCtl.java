@@ -2,6 +2,7 @@ package in.com.online.exam.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.text.SimpleDateFormat;
 
 
 
@@ -62,6 +63,7 @@ public class UserCtl extends BaseCtl {
 
 		String login = request.getParameter("login");
 		String dob = request.getParameter("dob");
+		String password = request.getParameter("password");
 		
 
 		if (DataValidator.isNull(request.getParameter("firstName"))) {
@@ -82,6 +84,7 @@ public class UserCtl extends BaseCtl {
 					PropertyReader.getValue("error.name", "Last Name"));
 			pass = false;
 		}
+		
 
 		if (DataValidator.isNull(login)) {
 			request.setAttribute("login",
@@ -99,12 +102,21 @@ public class UserCtl extends BaseCtl {
 			request.setAttribute("dob",
 					PropertyReader.getValue("error.require", "Date of Birth"));
 			pass = false;
-		} else if (!DataValidator.isDate(dob)) {
+		} 
+		
+		/* else if (!DataValidator.isDate(dob)) {
+			
+			System.out.println(dob);
 			request.setAttribute("dob","Min Age Must be 17 years");
 			pass = false;
 		}
+		*/
 
-		
+		if (DataValidator.isNull(password)) {
+			request.setAttribute("password",
+					PropertyReader.getValue("error.require", "Password is required"));
+			pass = false;
+		}
 		
 		
 		
@@ -125,6 +137,7 @@ public class UserCtl extends BaseCtl {
 		log.debug("UserRegistrationCtl Method populatebean Started");
 
 		UserBean bean = new UserBean();
+		String roleNameStr = "";
 
 		bean.setId(DataUtility.getLong(request.getParameter("id")));
 
@@ -135,8 +148,19 @@ public class UserCtl extends BaseCtl {
 		bean.setLName(DataUtility.getString(request.getParameter("lastName")));
 
 			bean.setLogin(DataUtility.getString(request.getParameter("login")));
-	
 			
+			bean.setPassword(DataUtility.getString(request.getParameter("password")));
+	
+			bean.setRole_Id(DataUtility.getInt(request.getParameter("role_Id")));
+			
+			if(bean.getRole_Id()==1)
+				roleNameStr = "ADMIN";
+			else if(bean.getRole_Id()==2)
+				roleNameStr = "STUDENT";
+			else
+				roleNameStr = "TEACHER";
+				
+			bean.setRoleName(roleNameStr);
 	
 			bean.setDob(DataUtility.getDate(request.getParameter("dob")));
 			
