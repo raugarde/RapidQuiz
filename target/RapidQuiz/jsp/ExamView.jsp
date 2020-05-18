@@ -1,6 +1,8 @@
 <%@page import="in.com.online.exam.controller.ExamCtl"%>
 <%@page import="in.com.online.exam.util.DataUtility"%>
 <%@page import="in.com.online.exam.util.ServletUtility"%>
+<%@page import="java.util.List"%>
+<%@page import="in.com.online.exam.util.HTMLUtility"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,6 +27,8 @@
 	<div class="col-lg-12 well">
 	<div class="row">
 				<form action="<%=ORSView.EXAM_CTL%>"  method="post" >
+				<% List subjectList=(List)request.getAttribute("subjectList"); %>
+				
 				
 				<jsp:useBean id="bean" class="in.com.online.exam.bean.ExamBean"
 			scope="request"></jsp:useBean>
@@ -44,7 +48,6 @@
 					<div class="form-group">
 						<label>Category</label>
 						<input type="text" name="category" placeholder="Enter Category Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getExamCategory())%>">
-						<b><font color="red"><%=ServletUtility.getErrorMessage("category", request)%></font></b>
 					</div>
 				</div>
 					
@@ -52,7 +55,6 @@
 					<div class="form-group">
 						<label>Exam Name</label>
 						<input type="text" name="examName" placeholder="Enter Exam Name Here.." class="form-control" value="<%=DataUtility.getStringData(bean.getExamName())%>">
-						<b><font color="red"><%=ServletUtility.getErrorMessage("examName", request)%></font></b>
 					</div>
 				</div>
 						
@@ -61,8 +63,15 @@
 					<div class="form-group">
 						<label>Exam Date</label>
 						<input type="text" name="examDate" id="datepicker" placeholder="Enter Exam  Date(dd/MM/yyyy)  Here.." class="form-control" value="<%=DataUtility.getDateString(bean.getExamDate())%>" id="datepicker">
-						<b><font color="red"> <%=ServletUtility.getErrorMessage("examDate", request)%></font></b>
 					</div>
+					
+					<div class="form-group">
+						<label>Subject</label>
+						<%=HTMLUtility.getList("subject_id", String.valueOf(bean.getSubject_description()), subjectList)%>
+					</div>
+
+				<br/>
+				<br/>
 				
 					<input type="submit" name="operation" class="btn btn-lg btn-info"
 						value="<%=ExamCtl.OP_SAVE%>">					

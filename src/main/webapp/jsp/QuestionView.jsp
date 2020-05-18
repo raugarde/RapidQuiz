@@ -102,7 +102,10 @@
 	<br><br>
 	<hr>
 	<br><br>
-	<!-- Script -->
+
+
+<%@include file="Footer.jsp"%>
+		<!-- Script -->
 <script type="text/javascript">
 $('#qtype_select').on('change', function() {
 	$('.optional').css('display','none');

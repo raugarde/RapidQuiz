@@ -34,7 +34,7 @@
 								UserModel nwusr = new UserModel();
 								%>
 								<input type="submit" name="operation" class="btn btn-md btn-info" value="<%=UserListCtl.OP_SEARCH%>" >
-								<a href="UserCtl?id=<%=nwusr.nextPK()%>"  class="btn btn-success" >NEW</a>
+								<a href="UserCtl?id=<%=nwusr.nextPK()%>"  style="margin-left: 220px;" class="btn btn-success" >NEW</a>
 							</div>
 						</div>					
 			</div>		

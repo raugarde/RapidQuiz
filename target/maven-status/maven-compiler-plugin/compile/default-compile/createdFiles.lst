@@ -1,3 +1,4 @@
+in\com\online\exam\bean\SubjectBean.class
 in\com\online\exam\util\EmailMessage.class
 in\com\online\exam\controller\FrontController.class
 in\com\online\exam\controller\MyProfileCtl.class
@@ -10,6 +11,7 @@ in\com\online\exam\model\ResultModel.class
 in\com\online\exam\bean\DropdownListBean.class
 in\com\online\exam\controller\ExamCtl.class
 in\com\online\exam\exeption\DuplicateRecordException.class
+in\com\online\exam\model\SubjectModel.class
 in\com\online\exam\util\EmailBuilder.class
 in\com\online\exam\controller\UserRegistrationCtl.class
 in\com\online\exam\controller\ResultList.class

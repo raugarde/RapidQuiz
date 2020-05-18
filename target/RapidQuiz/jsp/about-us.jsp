@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>Learn IT Education</title>
+        <title>Rapid Quiz</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -104,8 +104,8 @@
         <section class="about_area p_120">
         	<div class="container">
         		<div class="main_title">
-        			<h2>Goals to Achieve for the leadership</h2>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+        			<h2>Rapid Quiz, we will change the future</h2>
+        			<p>Proyect for Database Systems</p>
         		</div>
         		<div class="row about_inner">
         			<div class="col-lg-6">
@@ -121,7 +121,7 @@
 
 								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 									<div class="card-body">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+									Proyect for Database Systems
 									</div>
 								</div>
 							</div>
@@ -135,7 +135,7 @@
 								</div>
 								<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 									<div class="card-body">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+									Proyect for Database Systems
 									</div>
 								</div>
 							</div>
@@ -149,7 +149,7 @@
 								</div>
 								<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 									<div class="card-body">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+									Proyect for Database Systems
 									</div>
 								</div>
 							</div>
@@ -163,8 +163,8 @@
 								</div>
 								<div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
 									<div class="card-body">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-									</div>
+								Proyect for Database Systems									
+								</div>
 								</div>
 							</div>
 						</div>
@@ -179,8 +179,8 @@
         			</div>
         		</div>
         		<div class="about_details">
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+        			<p>Proyect for Database Systems</p>
+        			<p>Proyect for Database Systems</p>
         		</div>
         	</div>
         </section>
@@ -191,7 +191,7 @@
         	<div class="container">
         		<div class="main_title">
         			<h2>Meet Our Faculty</h2>
-        			<p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
+        			<p>Enginers developers.</p>
         		</div>
         		<div class="row team_inner">
         			<div class="col-lg-3 col-sm-6">
@@ -205,8 +205,8 @@
         						</div>
         					</div>
         					<div class="team_name">
-        						<h4>Ethel Davis</h4>
-        						<p>Managing Director (Sales)</p>
+        						<h4>Raul Garcia</h4>
+        						<p>Managing Director</p>
         					</div>
         				</div>
         			</div>
@@ -221,8 +221,8 @@
         						</div>
         					</div>
         					<div class="team_name">
-        						<h4>Ethel Davis</h4>
-        						<p>Managing Director (Sales)</p>
+        						<h4>Raul Garcia</h4>
+        						<p>Developer</p>
         					</div>
         				</div>
         			</div>
@@ -237,8 +237,8 @@
         						</div>
         					</div>
         					<div class="team_name">
-        						<h4>Ethel Davis</h4>
-        						<p>Managing Director (Sales)</p>
+        						<h4>Umair Haider</h4>
+        						<p>Managing Director</p>
         					</div>
         				</div>
         			</div>
@@ -253,8 +253,8 @@
         						</div>
         					</div>
         					<div class="team_name">
-        						<h4>Ethel Davis</h4>
-        						<p>Managing Director (Sales)</p>
+        						<h4>Umair Haider</h4>
+        						<p>Developer</p>
         					</div>
         				</div>
         			</div>
@@ -270,7 +270,7 @@
         			<div class="item">
         				<div class="testi_item">
 							<img src="img/testimonials/testi-3.png" alt="">
-       						<h4>Fannie Rowe</h4>
+       						<h4>Raul Garcia</h4>
        						<ul class="list">
        							<li><a href="#"><i class="fa fa-star"></i></a></li>
        							<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -284,7 +284,7 @@
         			<div class="item">
         				<div class="testi_item">
 							<img src="img/testimonials/testi-3.png" alt="">
-       						<h4>Fannie Rowe</h4>
+       						<h4>Umair Haider</h4>
        						<ul class="list">
        							<li><a href="#"><i class="fa fa-star"></i></a></li>
        							<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -298,7 +298,7 @@
         			<div class="item">
         				<div class="testi_item">
 							<img src="img/testimonials/testi-3.png" alt="">
-       						<h4>Fannie Rowe</h4>
+       						<h4>Raul Garcia and Umair Haider</h4>
        						<ul class="list">
        							<li><a href="#"><i class="fa fa-star"></i></a></li>
        							<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -319,7 +319,7 @@
         	<div class="container">
         		<div class="impress_inner text-center">
 					<h2>Become an instructor</h2>
-					<p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station whether that is on the deck</p>
+					<p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. Its exciting to think about setting up your own viewing station whether that is on the deck,</p>
 					<a class="main_btn2" href="#">Apply for the post</a>
         		</div>
         	</div>

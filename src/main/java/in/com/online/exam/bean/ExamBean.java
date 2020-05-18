@@ -8,10 +8,25 @@ public class ExamBean extends BaseBean{
 	private Date examDate;
 	private String examCategory;
 	
+	private Integer subject_id;
+	private String subject_description;
 	
 	
-	
-	
+	public Integer getSubject_id() {
+		return subject_id;
+	}
+
+	public void setSubject_id(Integer subject_id) {
+		this.subject_id = subject_id;
+	}
+
+	public String getSubject_description() {
+		return subject_description;
+	}
+
+	public void setSubject_description(String subject_description) {
+		this.subject_description = subject_description;
+	}
 
 	public String getExamCategory() {
 		return examCategory;

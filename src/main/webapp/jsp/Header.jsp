@@ -59,6 +59,7 @@
 				
 				<%if(userDto.getRole_Id()==1){ %>
 								<li class="nav-item"><a class="nav-link" href="<%=ORSView.USER_LIST_CTL%>">Manage Users</a></li>
+								<li class="nav-item"><a class="nav-link" href="<%=ORSView.USER_REGISTRATION_CTL%>">Register User</a></li>
 								<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teacher Options</a>
 									<ul class="dropdown-menu">

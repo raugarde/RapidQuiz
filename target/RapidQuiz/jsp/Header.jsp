@@ -9,7 +9,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title></title>
-
+		<link href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
  <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="/RapidQuiz/css/bootstrap.css">
         <link rel="stylesheet" href="/RapidQuiz/vendors/linericon/style.css">
@@ -57,6 +59,7 @@
 				
 				<%if(userDto.getRole_Id()==1){ %>
 								<li class="nav-item"><a class="nav-link" href="<%=ORSView.USER_LIST_CTL%>">Manage Users</a></li>
+								<li class="nav-item"><a class="nav-link" href="<%=ORSView.USER_REGISTRATION_CTL%>">Register User</a></li>
 								<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teacher Options</a>
 									<ul class="dropdown-menu">
